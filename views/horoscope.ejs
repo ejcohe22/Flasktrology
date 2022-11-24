@@ -16,20 +16,10 @@
     <div> Check Your Horoscope!</div>
 </header>
 
-<body class="home-background">
-    <form class="sign-form" method="post" action="/sunSignQuery">
-        <div class="sign choice">
-            <label for="form-1-sunsign">
-              Choose your sun sign
-            </label>
-            <select class="form-control" name="form_1_sunsign">
-              <% sunsigns.forEach(sign => { %>
-                <option><%= sign %></option>
-              <% }) %>
-            </select>
-            <input type="submit">
-        </div>
-    </form>
+<body>
+    <p> 
+        <%= horoscope.horoscope %>
+    </p>
 </body>
 <!-- >%- include("partials/footer"); -%< -->
 

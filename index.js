@@ -38,3 +38,24 @@ app.listen(port, () => {
 async function getSunsigns() {
   return await axios.get(`${baseUrl}/sunsigns`);
 }
+
+/**
+ * Gets todays horoscope for the given sign. Call into sandipbgpt api
+ * https://github.com/sandipbgt/theastrologer-api
+ *
+ * @return {promise} promise with a list of sunsigns used by the API
+ */
+ async function getTodaysHoroscope(sign) {
+  return await axios.get(`${baseUrl}/horoscope/${sign}/today`);
+}
+
+/**
+ * 
+ */
+app.post('/sunSignQuery', async (req, res) => {
+  await getTodaysHoroscope(req.body.form_1_sunsign)
+    .then((res) => astro['fortune'] = res.data)
+    .catch((err) => console.log(err));
+    console.log(astro['fortune'])
+  res.render( 'horoscope', {horoscope: astro['fortune']} );
+});
