@@ -1,0 +1,31 @@
+{
+  "name": "astrology_web_app",
+  "version": "1.0.0",
+  "description": "node js web app that retrieves a horoscope and displays it in a meaningful way",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "app": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejcohe22/Astrology.js.git"
+  },
+  "keywords": [
+    "astrology"
+  ],
+  "author": "Erik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ejcohe22/Astrology.js/issues"
+  },
+  "homepage": "https://github.com/ejcohe22/Astrology.js#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
