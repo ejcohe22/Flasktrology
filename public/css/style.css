@@ -1,3 +1,14 @@
 .home-background{
     background-image: url('../images/space-background.jpg');
 }
+
+.sign-form{
+    background-color: aliceblue;
+    opacity: 80%;
+    border: 1px black;
+    padding: 2em;
+    border-radius: 4px;
+    width: 50%;
+    margin: 40px auto auto auto;
+    text-align: center;
+}
