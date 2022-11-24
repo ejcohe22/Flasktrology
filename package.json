@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/ejcohe22/Astrology.js#readme",
   "dependencies": {
+    "axios": "^1.2.0",
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "path": "^0.12.7"
   },
