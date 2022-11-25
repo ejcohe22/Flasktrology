@@ -1,5 +1,4 @@
 const express = require('express');
-//const path = require('path');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 
@@ -42,20 +41,32 @@ async function getSunsigns() {
 /**
  * Gets todays horoscope for the given sign. Call into sandipbgpt api
  * https://github.com/sandipbgt/theastrologer-api
- *
+ * @param {string} sign - sunsign for the horoscope to retrieve
  * @return {promise} promise with a list of sunsigns used by the API
  */
- async function getTodaysHoroscope(sign) {
-  return await axios.get(`${baseUrl}/horoscope/${sign}/today`);
+async function getTodaysHoroscope(sign) {
+  return await axios.get(`${baseUrl}/horoscope/${sign}/${astro['day']}`);
 }
 
 /**
- * 
+ *
  */
 app.post('/sunSignQuery', async (req, res) => {
+  astro['day'] = 'today';
+  pages = ['yesterday', 'tommorow'];
   await getTodaysHoroscope(req.body.form_1_sunsign)
-    .then((res) => astro['fortune'] = res.data)
-    .catch((err) => console.log(err));
-    console.log(astro['fortune'])
+      .then((res) => astro['fortune'] = res.data)
+      .catch((err) => console.log(err));
+
+  res.render( 'horoscope', {horoscope: astro['fortune']} );
+});
+
+app.post('/changeDay', async (req, res) => {
+  astro['day'] = 'today';
+  pages = ['yesterday', 'tommorow'];
+  await getTodaysHoroscope(req.body.form_1_sunsign)
+      .then((res) => astro['fortune'] = res.data)
+      .catch((err) => console.log(err));
+
   res.render( 'horoscope', {horoscope: astro['fortune']} );
 });
